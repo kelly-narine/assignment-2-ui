@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <div class="p-d-flex">
+        <div class="p-mr-2" style="margin-top: 2em">
+            <h:form>
+                <div class="p-mr-2">
+                    <p:dataTable id="table" var="inventoryItem" value="#{storeAppBean.inventoryList}">  <!-- allowUnsorting="true" sortMode="single" -->
+
+                        <p:column field="name" headerText="Item Name"> <!--  sortOrder="asc" filterable="false"-->
+                            <h:outputText value="#{inventoryItem.name}"/>
+                        </p:column>
+
+                        <p:column field="sport" headerText="Sport"> <!--  filterable="false" -->
+                            <h:outputText value="#{inventoryItem.sport}"/>
+                        </p:column>
+
+                        <p:column field="quantity" headerText="Item Quantity"> <!--  filterable="false" -->
+                            <h:outputText value="#{inventoryItem.quantity}"/>
+                        </p:column>
+
+                        <p:column field="unitPrice" headerText="Unit Price"> <!--  filterable="false" -->
+                            <h:outputText value="#{inventoryItem.unitPrice}"/>
+                        </p:column>
+
+                        <p:column field="dateUpdated" headerText="Last Modified"> <!--  filterable="false" -->
+                            <h:outputText value="#{inventoryItem.dateUpdated}"/>
+                        </p:column>
+                        <p:column headerText="Remove Item">
+                            <p:commandButton type="submit" actionListener="#{storeAppBean.removeInventory(inventoryItem)}"
+                                             style="margin-right:20px;" value="Remove Game"
+                                             icon="pi pi-check" iconPos="right"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </h:form>
+            <!--<p:messages/>-->
+            <h:form>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="name" style="margin-right: 1em">Item Name: </p:outputLabel>
+                    <p:inputText id="name" type="text" value="#{storeAppBean.name}">
+                        <!--<f:validator validatorId="nameValidator" for="name"/>-->
+                    </p:inputText>
+                    <!--<p:message for="@previous"/>-->
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="sport" style="margin-right: 1em">Sport: </p:outputLabel>
+                    <p:inputText id="sport" type="text" value="#{storeAppBean.sport}"/>
+                    <!-- <p:message for="@previous"/> -->
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="quantity" style="margin-right: 1em">Quantity: </p:outputLabel>
+                    <p:inputText id="quantity" type="text" value="#{storeAppBean.quantity}"/>
+                    <!--<p:message for="@previous"/>-->
+                </div>
+                <div class="p-field" style="margin: 2em">
+                    <p:outputLabel for="unitPrice" style="margin-right: 1em">Unit Price: </p:outputLabel>
+                    <p:inputText id="unitPrice" type="text" value="#{storeAppBean.unitPrice}"/>
+                    <!--<p:message for="@previous"/>-->
+                </div>
+                <p:commandButton style="margin: 2em" type="submit" actionListener="#{storeAppBean.addInventory()}"
+                                 value="Add Item"
+                                 icon="pi pi-check" iconPos="right" validateClient="true"/>
+            </h:form>
+
+
+        </div>
+    </div>
+</h:body>
+</html>

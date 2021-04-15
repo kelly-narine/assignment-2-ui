@@ -14,29 +14,28 @@
                 <div class="p-mr-2">
                     <p:dataTable id="table" var="inventoryItem" value="#{storeAppBean.inventoryList}">  <!-- allowUnsorting="true" sortMode="single" -->
 
-                        <p:column field="name" headerText="Item Name"> <!--  sortOrder="asc" filterable="false"-->
+                        <p:column headerText="Item Name"> <!--  sortOrder="asc" filterable="false"-->
                             <h:outputText value="#{inventoryItem.name}"/>
                         </p:column>
 
-                        <p:column field="sport" headerText="Sport"> <!--  filterable="false" -->
+                        <p:column headerText="Sport"> <!--  filterable="false" -->
                             <h:outputText value="#{inventoryItem.sport}"/>
                         </p:column>
 
-                        <p:column field="quantity" headerText="Item Quantity"> <!--  filterable="false" -->
+                        <p:column headerText="Item Quantity"> <!--  filterable="false" -->
                             <h:outputText value="#{inventoryItem.quantity}"/>
                         </p:column>
 
-                        <p:column field="unitPrice" headerText="Unit Price"> <!--  filterable="false" -->
+                        <p:column headerText="Unit Price"> <!--  filterable="false" -->
                             <h:outputText value="#{inventoryItem.unitPrice}"/>
                         </p:column>
 
-                        <p:column field="dateUpdated" headerText="Last Modified"> <!--  filterable="false" -->
+                        <p:column headerText="Last Modified"> <!--  filterable="false" -->
                             <h:outputText value="#{inventoryItem.dateUpdated}"/>
                         </p:column>
                         <p:column headerText="Remove Item">
                             <p:commandButton type="submit" actionListener="#{storeAppBean.removeInventory(inventoryItem)}"
-                                             style="margin-right:20px;" value="Remove Game"
-                                             icon="pi pi-check" iconPos="right"/>
+                                             style="margin-right:20px;" value="Remove Item"/>
                         </p:column>
                     </p:dataTable>
                 </div>
@@ -67,7 +66,7 @@
                 </div>
                 <p:commandButton style="margin: 2em" type="submit" actionListener="#{storeAppBean.addInventory()}"
                                  value="Add Item"
-                                 icon="pi pi-check" iconPos="right" validateClient="true"/>
+                                 validateClient="true"/>
             </h:form>
 
 

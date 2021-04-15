@@ -29,8 +29,6 @@ public class StoreAppBean implements Serializable {
 
     private Date dateUpdated;
 
-    private List<Inventory> storeInventory;
-
     @EJB
     private InventoryService inventoryService;
 
@@ -76,8 +74,8 @@ public class StoreAppBean implements Serializable {
         setDateUpdated(null);
     }
 
-    public String createStore() {
-        Store store = new Store(storeId, storeName, location, storeInventory);
+    public String storeInfo() {
+        Store store = new Store(storeId, storeName, location, getInventoryList());
         return "inventory";
     }
 
@@ -143,13 +141,5 @@ public class StoreAppBean implements Serializable {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public List<Inventory> getStoreInventory() {
-        return storeInventory;
-    }
-
-    public void setStoreInventory(List<Inventory> storeInventory) {
-        this.storeInventory = storeInventory;
     }
 }

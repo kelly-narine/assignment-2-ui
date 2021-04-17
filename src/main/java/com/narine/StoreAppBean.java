@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-@SessionScoped //
+@SessionScoped
 @Named //allows the class to be accessed in the the JSF
 public class StoreAppBean implements Serializable {
 
